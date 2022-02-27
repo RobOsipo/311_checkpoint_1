@@ -8,10 +8,10 @@ const port = process.env.PORT || 4000
 app.use(bodyParser.json()); 
 app.use(userRoutes)
 
-
-//if any route not found sends back error message
+// Error handling #1
+//if any route besides users is used for get, post, put request it sends back error message
 app.all("*", (req, res) => {
-  res.status(404).send('<h1>Resource not found</h1>')
+  res.status(404).send('<h1 style="font-size: 50px">Resource not found, incorrect end-point</h1>')
 })
 
 // My base route 
